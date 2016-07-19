@@ -1,0 +1,13 @@
+<h1>Flickr Sidebar</h1>
+
+<%= form_tag root_path, method: :get do %>
+  <%= label_tag "Enter a Flickr User ID to see their photos"%><br>
+  <%= text_field_tag :user_id, "12864272@N02" %>
+  <%= submit_tag 'Go!' %>
+<% end %>
+
+<% cache ("flickr_sidebar") do %>
+  <% unless @user_id.nil?%>
+    <%= render_flickr_sidebar_widget("#{@user_id}") %>
+  <% end %>
+<% end %>

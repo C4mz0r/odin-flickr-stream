@@ -1,0 +1,11 @@
+<div class="flickr">
+  <ul>
+    <% photos.each do |row| %>
+      <li>
+        <% row.each do |p| %>  
+          <%= image_tag get_photo_url(p), :class => 'flickr_photo' %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>	
+</div>
