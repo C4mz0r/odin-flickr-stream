@@ -2,8 +2,11 @@
   <ul>
     <% photos.each do |row| %>
       <li>
-        <% row.each do |p| %>  
-          <%= image_tag get_photo_url(p), :class => 'flickr_photo' %>
+        <% row.each do |p| %>
+          <% urls = get_photo_url(p)%>
+          <%= link_to urls[:original] do %>      
+            <%= image_tag urls[:thumb], :class => 'flickr_photo' %>
+          <% end %>
         <% end %>
       </li>
     <% end %>

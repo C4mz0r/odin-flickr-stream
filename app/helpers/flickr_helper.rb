@@ -16,7 +16,7 @@ module FlickrHelper
   
   def get_photo_url(photo)
     info = flickr.photos.getInfo(:photo_id => photo.id, :secret => photo.secret)
-    FlickRaw.url_t(info)
+    return { :thumb => FlickRaw.url_t(info), :original => FlickRaw.url_o(info) }    
   end
   
   def initFlickraw
